@@ -1,4 +1,5 @@
 .idea
-/vendor/
+/web/vendor/
 .env
 /docker/mysql/data/
+/web/composer.lock
