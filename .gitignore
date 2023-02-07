@@ -4,3 +4,4 @@
 /docker/mysql/data/
 /web/composer.lock
 /logs
+/web/var/*
