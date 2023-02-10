@@ -5,6 +5,7 @@ FROM php:${PHP_VERSION}
 RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
+    	nodejs npm \
 	&& docker-php-ext-configure zip \
 	&& docker-php-ext-install zip \
 	&& docker-php-ext-install pdo pdo_mysql mysqli opcache
