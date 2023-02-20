@@ -5,10 +5,15 @@ FROM php:${PHP_VERSION}
 RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
-    	nodejs npm \
+    	build-essential \
+    	npm \
 	&& docker-php-ext-configure zip \
 	&& docker-php-ext-install zip \
 	&& docker-php-ext-install pdo pdo_mysql mysqli opcache
+
+RUN npm install npm@latest -g && \
+    npm install n -g && \
+    n latest
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
