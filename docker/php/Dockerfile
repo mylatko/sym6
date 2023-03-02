@@ -7,9 +7,12 @@ RUN apt-get update && apt-get install -y \
         zip \
     	build-essential \
     	npm \
+    	zlib1g-dev libicu-dev g++ \
 	&& docker-php-ext-configure zip \
-	&& docker-php-ext-install zip \
-	&& docker-php-ext-install pdo pdo_mysql mysqli opcache
+	&& docker-php-ext-install zip intl \
+	&& docker-php-ext-install pdo pdo_mysql mysqli opcache \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
 
 RUN npm install npm@latest -g && \
     npm install n -g && \
